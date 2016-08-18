@@ -1,3 +1,38 @@
+/* Main CSS */
 * {
   box-sizing: border-box;
+}
+
+.main {
+  background: rgb(245, 245, 245);
+  width: 550px;
+  height: 500px;
+  text-align: center;
+  font-family: helvetica;
+}
+
+.title {
+  color: rgb(232, 213, 213);
+  font-size: 40px;
+
+}
+
+.todo__form {
+  align-self: center;
+  border-bottom: 1px solid gray;
+  box-shadow: 3px 3px 3px 3px #888888;
+  height: 300px;
+  width: 500px;
+  background-color: white;
+  margin-left: 20px;
+}
+
+.todo__text {
+  border: none;
+  outline: none;
+  width: inherit;
+}
+
+.todo__submit {
+  display: none;
 }

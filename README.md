@@ -3,14 +3,18 @@
 ##Includes
 - [x] link all files to HTML
 - [] create form for todos
-  - [] add classes
+  - [x] add classes
+  - [x] add data-js
+  - [x] correct placeholder
+  - [] position
+  - [] multiple lines
 - [] style forms
   - [] correct fonts
-  - [] right colors
+  - [x] right colors
   - [] extra layers on the bottom of page
 - [] add interaction
   - [] make title changeable
-  - [] be able to push return key to submit
+  - [x] be able to push return key to submit
   - [] check off for item
   - [] make function to delete item
   - [] see a number of how many items are left

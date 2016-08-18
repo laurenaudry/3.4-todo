@@ -3,24 +3,35 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheets/main.css">
-    <title></title>
+    <title>
+      ToDo list project
+    </title>
   </head>
   <body>
-    <h1 class="title">
-      todos
-    </h1>
-    <div class="todos">
-      <form class="todo__form"
-            action="index.html"
-            method="POST">
-        <input type="text"
-               name="textArea"
-               value="type todo item here"/>
-        <input type="submit"
-               name="submit"
-               value="submit"/>
-      </form>
-    </div>
+    <main class="main">
+      <h1 class="title">
+        todos
+      </h1>
+      <div class="todo">
+        <form class="todo__form"
+              action="index.html"
+              method="POST">
+          <input class="todo__text"
+                 type="text"
+                 name="textArea"
+                 placeholder="type todo item here"/>
+          <input class="todo__submit"
+                 data-js="todo__submit"
+                 type="submit"
+                 name="submit"
+                 value="submit"/>
+          <ul class="todo__items"
+              data-js="todo__items">
+            <!-- List contents made in main.js -->
+          </ul>
+        </form>
+      </div>
+  </main>
   <script src="javascripts/jquery-3.1.0.js" charset="utf-8"></script>
   <script src="javascripts/main.js" charset="utf-8"></script>
   </body>
