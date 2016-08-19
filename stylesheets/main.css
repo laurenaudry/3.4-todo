@@ -20,17 +20,16 @@
 .todo__form {
   align-self: center;
   border-bottom: 1px solid gray;
-  box-shadow: 3px 3px 3px 3px #888888;
-  height: 300px;
-  width: 500px;
+  box-shadow: 3px 3px 3px 3px rgb(136, 136, 136);
   background-color: white;
   margin-left: 20px;
+  overflow: scroll;
+  display: list-item;
 }
 
 .todo__text {
   border: none;
   outline: none;
-  width: inherit;
 }
 
 .todo__submit {
