@@ -4,7 +4,6 @@ $(function() {
   var $submitElement = $("[data-js='todo__submit']");
   var $textElement = $("[data-js='todo__text']");
   var $listElement = $("[data-js='todo__items']");
-  var selectedTodo = [];
 
 
     $submitElement.on("click", function(e){
@@ -15,10 +14,9 @@ $(function() {
 
     if($listString.length >= 2){
       $listElement.append(`
-        <li class="toDo__listItem">
-          <span class="checkBox"></span>
-          <p  data-js="toDo__listText"
-              class="toDo__listText">
+        <li class="todo__listItems">
+          <p  data-js="todo__listText"
+              class="todo__listText">
             ${$listString}
           </p>
         </li>
@@ -26,5 +24,8 @@ $(function() {
 
         $textElement.val("");
       };
+  });
+  $listElement.on("click", "[data-js='todo__listText']", function(e){
+    $(e.target).parent().toggleClass("selected");
   });
 });

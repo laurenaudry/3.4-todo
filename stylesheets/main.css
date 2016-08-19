@@ -7,13 +7,13 @@
   background: rgb(245, 245, 245);
   width: 550px;
   height: 500px;
-  text-align: center;
   font-family: helvetica;
 }
 
 .title {
   color: rgb(232, 213, 213);
   font-size: 40px;
+  text-align: center;
 
 }
 
@@ -22,16 +22,28 @@
   border-bottom: 1px solid gray;
   box-shadow: 3px 3px 3px 3px rgb(136, 136, 136);
   background-color: white;
+  display: inline-block;;
   margin-left: 20px;
-  overflow: scroll;
-  display: list-item;
 }
 
 .todo__text {
   border: none;
+  padding: 10px;
   outline: none;
+  width: 500px;
 }
 
 .todo__submit {
   display: none;
+}
+
+.todo__items {
+  font-size: 25px;
+  list-style: none;
+  margin: 5px;
+  padding: 10px;
+}
+
+.todo__listText {
+  height: 40px;
 }
