@@ -46,4 +46,13 @@
 
 .todo__listText {
   height: 40px;
+  margin: 5px;
+}
+
+.checkOff {
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
 }
