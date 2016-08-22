@@ -6,8 +6,8 @@
   - [x] add classes
   - [x] add data-js
   - [x] correct placeholder
-  - [] position
-  - [] multiple lines
+  - [x] position
+  - [x] multiple lines
 - [] style forms
   - [] correct fonts
   - [x] right colors

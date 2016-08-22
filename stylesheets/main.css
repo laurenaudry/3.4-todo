@@ -53,6 +53,12 @@
   background-color: transparent;
   border: 2px solid grey;
   border-radius: 50%;
+  display: inline-block;
   height: 30px;
+  overflow: hidden;
   width: 30px;
+}
+
+.checkOff:hover {
+  cursor: pointer;
 }
