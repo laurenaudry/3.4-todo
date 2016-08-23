@@ -62,15 +62,3 @@
 .checkOff:hover {
   cursor: pointer;
 }
-
-.completed {
-  background-color: green;
-}
-
-.selected {
-  background-color: light grey;
-  visibility: visible;
-}
-
-.strikeThrough {
-  text-decoration: line-through;
