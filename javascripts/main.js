@@ -1,5 +1,7 @@
 // Main javascript/jQuery
 $(function() {
+
+  var $body = $("[data-js='body']");
   var $formElement = $("[data-js=todo__form]")
   var $submitElement = $("[data-js='todo__submit']");
   var $textElement = $("[data-js='todo__text']");
@@ -31,4 +33,41 @@ $(function() {
       alert("Please put more than 2 characters to create todo.");
     };
   });
+
+  $listElement.on("click", "[data-js='todo__listText']", function(e){
+      $(e.target).parent().toggleClass("selected");
+      $(e.target).next().toggleClass("selected");
+    });
+
+    $listElement.on("click", function(e){
+      $(e.target).parent().toggleClass("completed");
+      $(e.target).parent().next().toggleClass("strikeThrough");
+      todoItemsLeft();
+    });
+
+    $body.on("keydown", function(e) {
+      if(e.keyCode === 8) {
+        deleteItems();
+      }
+    });
+
+    function todoItemsLeft() {
+      var $totalItems = $listElement.children().length;
+      var $completedItems = $listElement.find("[class='checkBox completed']");
+      var itemsLeft = $totalItems - $completedItems.length;
+      $toolBar.html(`
+        <span class="todo__itemsLeft">Items Left: ${itemsLeft}</span>
+        `);
+    };
+    function deleteItems() {
+        var $deleted = $listElement.children();
+        $deleted.each(function(i){
+          if($($deleted[i]).hasClass("selected")){
+            $($deleted[i]).remove();
+            todoItemsLeft();
+          } else {
+            todoItemsLeft();
+            return;
+          }
+        })};
 });
