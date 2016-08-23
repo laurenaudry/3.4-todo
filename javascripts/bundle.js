@@ -1,42 +1,54 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var $ = require('jquery');
 
-  var $listElement = $("[data-js='todo__items']");
+var finish = this;
 
-  var $counter = $listElement.children().length;
-   if($counter == 1){
-     $("[data-js='footer']").html(`
-       <label class="footer__counter"
-          data-js="footer__counter">
-          ${$counter} item
-       </label>
-     `);
-   }else{
-     $("[data-js='footer']").html(`
-       <label class="footer__counter"
-          data-js="footer__counter">
-          ${$counter} items
-       </label>
-     `);
-   };
+finish.init = function(listElement) {
+  console.log(listElement);
+
+  listElement.on("click", "[data-js='todo__listText']", function(e){
+      $(e.target).parent().toggleClass("selected");
+      });
+        listElement.on("click", "[data-js='checkOff']", function(e){
+     var $circleSelected = $(e.currentTarget);
+     $circleSelected.parent().toggleClass("todoCompleted");
+   });
+
+   var $counter = listElement.children().length;
+    if($counter == 1){
+      $("[data-js='footer']").html(`
+        <label class="footer__counter"
+           data-js="footer__counter">
+           ${$counter} item
+        </label>
+      `);
+    }else{
+      $("[data-js='footer']").html(`
+        <label class="footer__counter"
+           data-js="footer__counter">
+           ${$} items
+        </label>
+      `);
+    };
+};
 
 },{"jquery":4}],2:[function(require,module,exports){
 var $ = require('jquery');
 
 var item = this;
-var $submitElement = $("[data-js='todo__submit']");
-var $listElement = $("[data-js='todo__items']");
-var $textElement = $("[data-js='todo__text']");
-console.log("wut");
+item.submitElement = $("[data-js='todo__submit']");
+item.listElement = $("[data-js='todo__items']");
+item.textElement = $("[data-js='todo__text']");
+
 item.init =function(e) {
 
-  $submitElement.on("click", function(e){
+  item.submitElement.on("click", function(e){
   // prevents default submit behavior
   e.preventDefault();
-  var $listString = $textElement.val();
+  var $listString = item.textElement.val();
 
   if($listString.length >= 2){
-    $listElement.append(`
+    item.listElement.append(`
       <li class="todo__listItems">
         <span class="checkOff"
               data-js="checkOff">
@@ -48,7 +60,7 @@ item.init =function(e) {
       </li>
       `);
       // clears the place to enter a new todo.
-      $textElement.val("");
+      item.textElement.val("");
     } else {
     alert("Please put more than 2 characters to create todo.");
   };
@@ -59,16 +71,17 @@ item.init =function(e) {
 // Requiring that this dependency is available and loaded.
 var $ = require('jquery');
 var item = require('./item.js')
-var completed = require('./finish.js')
+var finish = require('./finish.js')
 
 $(function() {
 
     var $body = $("[data-js='body']")
     var $formElement = $("[data-js='todo__form' ]");
-  
+
     var $toolBar = $("[data-js='todo__toolBar']");
 
     item.init()
+    finish.init(item.listElement)
 
 
 //     $listElement.on("click", "[data-js='todo__listText']", function(e){
