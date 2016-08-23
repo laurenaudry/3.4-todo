@@ -62,3 +62,23 @@
 .checkOff:hover {
   cursor: pointer;
 }
+.completed {
+  background-color: rgb(129, 211, 100);
+}
+
+.selected {
+  background-color: rgb(246, 246, 246);
+  visibility: visible;
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+}
+
+.toDo__listToolBar {
+  bottom: 0;
+  height: 50px;
+  padding: 0 20px;
+  position: absolute;
+  width: 100%;
+}
