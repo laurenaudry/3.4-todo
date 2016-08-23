@@ -51,22 +51,4 @@ $(function() {
       $(e.target).parent().next().toggleClass("strikeThrough");
       todoItemsLeft();
     });
-
-    $body.on("keydown", function(e) {
-      if(e.keyCode === 8) {
-        deleteItems();
-      }
-    });
-    };
-    function deleteItems() {
-        var $deleted = $listElement.children();
-        $deleted.each(function(i){
-          if($($deleted[i]).hasClass("selected")){
-            $($deleted[i]).remove();
-            todoItemsLeft();
-          } else {
-            todoItemsLeft();
-            return;
-          }
-        })};
 });
