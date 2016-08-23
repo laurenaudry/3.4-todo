@@ -7,7 +7,7 @@
       ToDo list project
     </title>
   </head>
-  <body>
+  <body data-js="body">
     <main class="main">
       <h1 class="title">
         todos
@@ -31,8 +31,11 @@
               data-js="todo__items">
             <!-- List contents made in main.js -->
           </ul>
-          <div class="todo__toolBar">
-
+          <div data-js="todo__toolBar"
+               class="todo__toolBar">
+            <span class="todo__itemsLeft">
+            Items Left: 
+            </span>
           </div>
         </form>
       </div>
