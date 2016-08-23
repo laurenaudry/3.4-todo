@@ -71,20 +71,27 @@
 
 .selected {
   background-color: rgb(246, 246, 246);
-}
-
-.selected {
-  visibility: visible;
-}
-
-.strikeThrough {
   text-decoration: line-through;
 }
 
-.toDo__listToolBar {
-  bottom: 0;
-  height: 50px;
-  padding: 0 20px;
-  position: absolute;
-  width: 100%;
+.todoCompleted .checkOff {
+  border: 0;
+  background-color: rgb(56, 200, 115);
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  margin-right: 20px;
+  transition: background-color .6s;
+  width: 20px;
+}
+
+.footer {
+  background-color: rgb(245, 245, 245);
+  display: inline-block;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 16px;
+  text-align: left;
+  width: 500px;
 }

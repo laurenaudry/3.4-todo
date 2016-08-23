@@ -51,18 +51,10 @@ $(function() {
         $(e.target).parent().toggleClass("selected");
       });
 
-      $listElement.on("click", function(e){
-        $(e.target).parent().toggleClass("completed");
-        $(e.target).parent().toggleClass("strikeThrough");
-        todoItemsLeft();
-      });
-
-      function todoItemsLeft() {
-        var $totalItems = $listElement.children().length;
-        var $completedItems = $listElement.find("[class='checkOff completed']");
-        $(e.target).parent().next().toggleClass("strikeThrough");
-        todoItemsLeft();
-      };
+      $listElement.on("click", "[data-js='checkOff']", function(e){
+     var $circleSelected = $(e.currentTarget);
+     $circleSelected.parent().toggleClass("todoCompleted");
+   });
 });
 
 },{"./completed.js":1,"./deleteItem.js":2,"./item.js":3,"jquery":5}],5:[function(require,module,exports){
