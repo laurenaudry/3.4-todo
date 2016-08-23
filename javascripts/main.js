@@ -1,5 +1,6 @@
 // Main javascript/jQuery
 $(function() {
+
   var $body = $("[data-js='body']")
   var $formElement = $("[data-js='todo__form' ]");
   var $submitElement = $("[data-js='todo__submit']");
@@ -47,9 +48,25 @@ $(function() {
     function todoItemsLeft() {
       var $totalItems = $listElement.children().length;
       var $completedItems = $listElement.find("[class='checkOff completed']");
-      var itemsLeft = $totalItems - $completedItems.length;
-      $toolBar.html(`
-        <span class="todo__itemsLeft">Items Left: ${itemsLeft}</span>
-        `);
+      $(e.target).parent().next().toggleClass("strikeThrough");
+      todoItemsLeft();
+    });
+
+    $body.on("keydown", function(e) {
+      if(e.keyCode === 8) {
+        deleteItems();
+      }
+    });
     };
+    function deleteItems() {
+        var $deleted = $listElement.children();
+        $deleted.each(function(i){
+          if($($deleted[i]).hasClass("selected")){
+            $($deleted[i]).remove();
+            todoItemsLeft();
+          } else {
+            todoItemsLeft();
+            return;
+          }
+        })};
 });

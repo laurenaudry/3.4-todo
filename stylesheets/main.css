@@ -62,12 +62,16 @@
 .checkOff:hover {
   cursor: pointer;
 }
+
 .completed {
   background-color: rgb(129, 211, 100);
 }
 
 .selected {
   background-color: rgb(246, 246, 246);
+}
+
+.selected {
   visibility: visible;
 }
 
