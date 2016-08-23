@@ -1,3 +1,71 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var $ = require('jquery');
+
+},{"jquery":5}],2:[function(require,module,exports){
+arguments[4][1][0].apply(exports,arguments)
+},{"dup":1,"jquery":5}],3:[function(require,module,exports){
+arguments[4][1][0].apply(exports,arguments)
+},{"dup":1,"jquery":5}],4:[function(require,module,exports){
+// Requiring that this dependency is available and loaded.
+var $ = require('jquery');
+var deleteItem = require('./deleteItem.js')
+var item = require('./item.js')
+var completed = require('./completed.js')
+
+$(function() {
+
+    var $body = $("[data-js='body']")
+    var $formElement = $("[data-js='todo__form' ]");
+    var $submitElement = $("[data-js='todo__submit']");
+    var $textElement = $("[data-js='todo__text']");
+    var $listElement = $("[data-js='todo__items']");
+    var $toolBar = $("[data-js='todo__toolBar']");
+
+
+      $submitElement.on("click", function(e){
+      // prevents default submit behavior
+      e.preventDefault();
+
+      var $listString = $textElement.val();
+
+      if($listString.length >= 2){
+        $listElement.append(`
+          <li class="todo__listItems">
+            <span class="checkOff"
+                  data-js="checkOff">
+            </span>
+            <p  data-js="todo__listText"
+                class="todo__listText">
+              ${$listString}
+            </p>
+          </li>
+          `);
+          // clears the place to enter a new todo.
+          $textElement.val("");
+        } else {
+        alert("Please put more than 2 characters to create todo.");
+      };
+    });
+
+    $listElement.on("click", "[data-js='todo__listText']", function(e){
+        $(e.target).parent().toggleClass("selected");
+      });
+
+      $listElement.on("click", function(e){
+        $(e.target).parent().toggleClass("completed");
+        $(e.target).parent().toggleClass("strikeThrough");
+        todoItemsLeft();
+      });
+
+      function todoItemsLeft() {
+        var $totalItems = $listElement.children().length;
+        var $completedItems = $listElement.find("[class='checkOff completed']");
+        $(e.target).parent().next().toggleClass("strikeThrough");
+        todoItemsLeft();
+      };
+});
+
+},{"./completed.js":1,"./deleteItem.js":2,"./item.js":3,"jquery":5}],5:[function(require,module,exports){
 /*eslint-disable no-unused-vars*/
 /*!
  * jQuery JavaScript Library v3.1.0
@@ -10072,3 +10140,5 @@ if ( !noGlobal ) {
 
 return jQuery;
 } );
+
+},{}]},{},[4]);
